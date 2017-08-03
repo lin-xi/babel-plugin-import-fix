@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-import-fix",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "alter import module to certain module file path for smaller bundle and better performance.",
   "repository": {
     "type": "git",
@@ -9,7 +9,6 @@
   "main": "lib/index.js",
   "scripts": {
     "build": "rm -rf lib && ./node_modules/.bin/babel src --out-dir lib --ignore __tests__",
-    "test": "ava",
     "coveralls": "cat ./coverage/lcov.info | coveralls"
   },
   "keywords": [
