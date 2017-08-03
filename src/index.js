@@ -1,6 +1,6 @@
 import assert from 'assert'
 import Plugin from './Plugin'
-import {moduleConfig} from './module-config.js'
+import {config} from './module-config.js'
 
 export default function ({ types }) {
   let plugins = null
@@ -16,9 +16,9 @@ export default function ({ types }) {
   function Program (path, { opts = {} }) {
     // Init plugin instances once.
     if (!plugins) {
-      opts = moduleConfig
+      opts = config
       if (Array.isArray(opts)) {
-        opts = moduleConfig.concat(opts)
+        opts = config.concat(opts)
       }
       plugins = opts.map(
         ({
