@@ -1,5 +1,5 @@
 # babel-plugin-import-fix
-==== 
+
 
 alter import module to certain module file path for smaller bundle and better performance
 
@@ -18,9 +18,10 @@ import 'antd/lib/button/style'
 these fixies are made on ast.
 bundle file size decrease from 1.5Mb to 286Kb.
 
+-------
 
 ## how to use
--------
+
 config it in your .babelrc
 
 .babelrc
@@ -33,10 +34,9 @@ config it in your .babelrc
 }
 ```
 
-
+-------
 
 ## supported framework
--------
 
 | framework | status  |
 | :------------ |:---------------:|
@@ -48,10 +48,9 @@ config it in your .babelrc
 | echart       |✅        |
 | d3           |✅        |
 
-
+-------
 
 ## default config:
--------
 
 ```
 [
@@ -93,8 +92,10 @@ config it in your .babelrc
 ]
 ```
 
-## extend usage:
 -------
+
+## extend usage:
+
 you can overwrite the config or add new config like this:
 
 .babelrc
@@ -112,6 +113,7 @@ you can overwrite the config or add new config like this:
   ]]]
 }
 ```
+-------
 
 ## thanks:
 
