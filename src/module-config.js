@@ -6,7 +6,7 @@ export const config = [
   },
   {
     'libraryName': 'material-ui',
-    'libraryDirectory': 'components',  // default: lib
+    'libraryDirectory': 'src',  // default: lib
     'camel2DashComponentName': false  // default: true
   },
   {

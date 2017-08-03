@@ -85,12 +85,14 @@ export default class Plugin {
   }
 
   Program () {
+    console.log('🎄🎄🎄🎄', '[Program]')
     this.specified = Object.create(null)
     this.libraryObjs = Object.create(null)
     this.selectedMethods = Object.create(null)
   }
 
   ImportDeclaration (path) {
+    console.log('🎄🎄🎄🎄', '[ImportDeclaration]', path)
     const { node } = path
     // path maybe removed by prev instances.
     if (!node) return
@@ -111,6 +113,7 @@ export default class Plugin {
   }
 
   CallExpression (path) {
+    console.log('🎄🎄🎄🎄', '[CallExpression]', path)
     const { node } = path
     const { file } = path.hub
     const { name } = node.callee
@@ -134,6 +137,7 @@ export default class Plugin {
   }
 
   MemberExpression (path) {
+    console.log('🎄🎄🎄🎄', '[MemberExpression]', path)
     const { node } = path
     const { file } = path.hub
 
@@ -149,32 +153,38 @@ export default class Plugin {
   }
 
   Property (path, { opts }) {
+    console.log('🎄🎄🎄🎄', '[Property]', path, opts)
     const { node } = path
     this.buildDeclaratorHandler(node, 'value', path, opts)
   }
 
   VariableDeclarator (path, { opts }) {
+    console.log('🎄🎄🎄🎄', '[VariableDeclarator]', path, opts)
     const { node } = path
     this.buildDeclaratorHandler(node, 'init', path, opts)
   }
 
   LogicalExpression (path, { opts }) {
+    console.log('🎄🎄🎄🎄', '[LogicalExpression]', path, opts)
     const { node } = path
     this.buildExpressionHandler(node, ['left', 'right'], path, opts)
   }
 
   ConditionalExpression (path, { opts }) {
+    console.log('🎄🎄🎄🎄', '[ConditionalExpression]', path, opts)
     const { node } = path
     this.buildExpressionHandler(node, ['test', 'consequent', 'alternate'], path, opts)
   }
 
   IfStatement (path, { opts }) {
+    console.log('🎄🎄🎄🎄', '[IfStatement]', path, opts)
     const { node } = path
     this.buildExpressionHandler(node, ['test'], path, opts)
     this.buildExpressionHandler(node.test, ['left', 'right'], path, opts)
   }
 
   ExpressionStatement (path, { opts }) {
+    console.log('🎄🎄🎄🎄', '[ExpressionStatement]', path, opts)
     const { node } = path
     const { types } = this
     if (types.isAssignmentExpression(node.expression)) {
@@ -183,6 +193,7 @@ export default class Plugin {
   }
 
   ReturnStatement (path) {
+    console.log('🎄🎄🎄🎄', '[ReturnStatement]', path)
     const types = this.types
     const { node, hub: { file } } = path
     if (node.argument && types.isIdentifier(node.argument) && this.specified[node.argument.name]) {
@@ -191,11 +202,13 @@ export default class Plugin {
   }
 
   ExportDefaultDeclaration (path, { opts }) {
+    console.log('🎄🎄🎄🎄', '[ExportDefaultDeclaration]', path, opts)
     const { node } = path
     this.buildExpressionHandler(node, ['declaration'], path, opts)
   }
 
   BinaryExpression (path, { opts }) {
+    console.log('🎄🎄🎄🎄', '[BinaryExpression]', path, opts)
     const { node } = path
     this.buildExpressionHandler(node, ['left', 'right'], path, opts)
   }
