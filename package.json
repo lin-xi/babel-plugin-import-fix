@@ -1,7 +1,7 @@
 {
   "name": "babel-plugin-import-fix",
   "version": "1.0.0",
-  "description": "Component modular import plugin for babel.",
+  "description": "alter import module to certain module file path for smaller bundle and better performance.",
   "repository": {
     "type": "git",
     "url": "https://github.com/lin-xi/babel-plugin-import-fix"
@@ -10,12 +10,8 @@
   "scripts": {
     "build": "rm -rf lib && ./node_modules/.bin/babel src --out-dir lib --ignore __tests__",
     "test": "ava",
-    "lint": "eslint --ext .js src",
     "coveralls": "cat ./coverage/lcov.info | coveralls"
   },
-  "pre-commit": [
-    "lint"
-  ],
   "keywords": [
     "babel-plugin",
     "module path fix",
@@ -34,7 +30,12 @@
     "coveralls": "^2.11.6",
     "eslint": "^4.3.0",
     "eslint-config-standard": "^10.2.1",
-    "pre-commit": "^1.1.3"
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.1.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "pre-commit": "^1.1.3",
+    "standard": "^10.0.2"
   },
   "babel": {
     "presets": [
