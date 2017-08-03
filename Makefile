@@ -1,6 +1,6 @@
 publish:
 	npm run build
-	npm publish
-
-publish-sync: publish
-	cnpm sync babel-plugin-import
+	git add --all
+	git commit -m "update"
+	git push origin master
+	npm publish --registry https://registry.npmjs.org

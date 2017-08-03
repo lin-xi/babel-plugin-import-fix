@@ -1,6 +1,6 @@
 import assert from 'assert'
 import Plugin from './Plugin'
-import moduleConfig from './module-config.js'
+import {moduleConfig} from './module-config.js'
 
 export default function ({ types }) {
   let plugins = null
