@@ -44,4 +44,31 @@ export default function ({ types }) {
     }
     applyInstance("Program", arguments, this); // eslint-disable-line
   }
+
+  const methods = [
+    'ImportDeclaration',
+    'CallExpression',
+    'MemberExpression',
+    'Property',
+    'VariableDeclarator',
+    'LogicalExpression',
+    'ConditionalExpression',
+    'IfStatement',
+    'ExpressionStatement',
+    'ReturnStatement',
+    'ExportDefaultDeclaration',
+    'BinaryExpression'
+  ]
+
+  const ret = {
+    visitor: { Program }
+  }
+
+  for (const method of methods) {
+    ret.visitor[method] = function () { // eslint-disable-line
+      applyInstance(method, arguments, ret.visitor);  // eslint-disable-line
+    }
+  }
+
+  return ret
 }
