@@ -22,6 +22,10 @@ bundle file size decrease from 1.5Mb to 286Kb.
 
 ## how to use
 
+```
+npm install babel-plugin-import-fix -D
+```
+
 config it in your .babelrc
 
 .babelrc

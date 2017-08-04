@@ -1,37 +1,54 @@
+function camel2Dash (_str) {
+  const str = _str[0].toLowerCase() + _str.substr(1)
+  return str.replace(/([A-Z])/g, ($1) => `-${$1.toLowerCase()}`)
+}
+
 export const config = [
   {
     'libraryName': 'antd',
-    'libraryDirectory': 'lib',   // default: lib
-    'style': true   // or 'css'
+    'libraryDirectory': 'lib',
+    'style': true,
+    'getPath': function (name) {
+      return 'antd/lib/' + name
+    }
   },
   {
     'libraryName': 'material-ui',
-    'libraryDirectory': 'src',  // default: lib
-    'camel2DashComponentName': false  // default: true
+    'libraryDirectory': '',
+    'getPath': function (name) {
+      return 'material-ui/' + name
+    }
   },
   {
     'libraryName': 'xcui',
-    'libraryDirectory': 'components'  // default: lib
+    'libraryDirectory': 'components',
+    'getPath': function (name) {
+      return 'xcui/' + camel2Dash(name)
+    }
   },
   {
-    'libraryName': 'elementUI',
-    'libraryDirectory': 'libs'  // default: lib
+    'libraryName': 'iview',
+    'libraryDirectory': 'components',
+    'getPath': function (name) {
+      return 'xcui/' + camel2Dash(name)
+    }
   },
   {
-    'libraryName': 'three',
-    'libraryDirectory': 'components'  // default: lib
+    'libraryName': 'element-ui',
+    'libraryDirectory': 'libs',
+    'getPath': function (name) {
+      return 'element-ui/libs/' + camel2Dash(name)
+    }
   },
-  {
-    'libraryName': 'pixi.js',
-    'libraryDirectory': 'components'  // default: lib
-  },
-
   {
     'libraryName': 'd3',
-    'libraryDirectory': 'components'  // default: lib
+    'libraryDirectory': '',
+    'getPath': function (name) {
+      return 'd3-' + camel2Dash(name)
+    }
   },
   {
-    'libraryName': 'echart',
+    'libraryName': 'amazeui',
     'libraryDirectory': 'components'  // default: lib
   }
 ]

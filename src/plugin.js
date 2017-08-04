@@ -18,6 +18,7 @@ export default class Plugin {
   constructor (
     libraryName,
     libraryDirectory,
+    getPath,
     style,
     camel2DashComponentName,
     camel2UnderlineComponentName,
@@ -35,6 +36,7 @@ export default class Plugin {
         ? true
         : camel2DashComponentName
     this.camel2UnderlineComponentName = camel2UnderlineComponentName
+    this.getPath = getPath
     this.style = style || false
     this.fileName = fileName || ''
     this.types = types
@@ -42,16 +44,18 @@ export default class Plugin {
 
   importMethod (methodName, file) {
     if (!this.selectedMethods[methodName]) {
-      const libraryDirectory = this.libraryDirectory
+      // const libraryDirectory = this.libraryDirectory
+      const getPath = this.getPath
       const style = this.style
-      const transformedMethodName = this.camel2UnderlineComponentName  // eslint-disable-line
-        ? camel2Underline(methodName)
-        : this.camel2DashComponentName
-          ? camel2Dash(methodName)
-          : methodName
-      const path = winPath(
-        join(this.libraryName, libraryDirectory, transformedMethodName, this.fileName)
-      )
+      // const transformedMethodName = this.camel2UnderlineComponentName  // eslint-disable-line
+      //   ? camel2Underline(methodName)
+      //   : this.camel2DashComponentName
+      //     ? camel2Dash(methodName)
+      //     : methodName
+      // const path = winPath(
+      //   join(this.libraryName, libraryDirectory, transformedMethodName, this.fileName)
+      // )
+      const path = winPath(getPath(methodName))
       this.selectedMethods[methodName] = file.addImport(path, 'default')
       if (style === true) {
         file.addImport(`${path}/style`, 'style')
