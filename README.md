@@ -74,20 +74,7 @@ config it in your .babelrc
     'libraryDirectory': 'libs'
   },
   {
-    'libraryName': 'three',
-    'libraryDirectory': 'components'  // default: lib
-  },
-  {
-    'libraryName': 'pixi.js',
-    'libraryDirectory': 'components'
-  },
-
-  {
     'libraryName': 'd3',
-    'libraryDirectory': 'components'
-  },
-  {
-    'libraryName': 'echart',
     'libraryDirectory': 'components'
   }
 ]
