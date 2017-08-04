@@ -23,14 +23,7 @@ export const config = [
     'libraryName': 'xcui',
     'libraryDirectory': 'components',
     'getPath': function (name) {
-      return 'xcui/' + camel2Dash(name)
-    }
-  },
-  {
-    'libraryName': 'iview',
-    'libraryDirectory': 'components',
-    'getPath': function (name) {
-      return 'xcui/' + camel2Dash(name)
+      return 'xcui/lib/' + camel2Dash(name)
     }
   },
   {
@@ -46,9 +39,5 @@ export const config = [
     'getPath': function (name) {
       return 'd3-' + camel2Dash(name)
     }
-  },
-  {
-    'libraryName': 'amazeui',
-    'libraryDirectory': 'components'  // default: lib
   }
 ]
