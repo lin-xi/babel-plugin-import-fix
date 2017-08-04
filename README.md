@@ -1,7 +1,7 @@
 # babel-plugin-import-fix
 
 
-alter import module to certain module file path for smaller bundle and better performance
+alter import module to certain module file path for smaller bundle file and better performance
 
 -------
 
