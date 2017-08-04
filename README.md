@@ -5,13 +5,13 @@ alter import module to certain module file path for smaller bundle and better pe
 
 -------
 
-```
+```javascript
 import {Button} from 'antd';
 ```
 
 after fix:
 
-```
+```javascript
 import {Button} from 'antd/lib/button';
 import 'antd/lib/button/style'
 ```
@@ -22,14 +22,14 @@ bundle file size decrease from 1.5Mb to 286Kb.
 
 ## how to use
 
-```
+```bash
 npm install babel-plugin-import-fix -D
 ```
 
 config it in your .babelrc
 
 .babelrc
-```
+```javascript
 {
   "presets": [
     ["es2015", { "modules": false }], "react"
@@ -53,7 +53,7 @@ config it in your .babelrc
 
 ## default config:
 
-```
+```javascript
 [
   {
     'libraryName': 'antd',
@@ -87,7 +87,7 @@ config it in your .babelrc
 you can overwrite the config or add new config like this:
 
 .babelrc
-```
+```javascript
 {
   "presets": [
     ["es2015", { "modules": false }], "react"
