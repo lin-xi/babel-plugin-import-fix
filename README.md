@@ -57,21 +57,21 @@ config it in your .babelrc
 [
   {
     'libraryName': 'antd',
-    'libraryDirectory': 'lib',   // default: lib
-    'style': true   // or 'css'
+    'libraryDirectory': 'lib', 
+    'style': true
   },
   {
     'libraryName': 'material-ui',
-    'libraryDirectory': 'components',  // default: lib
-    'camel2DashComponentName': false  // default: true
+    'libraryDirectory': '',
+    'camel2DashComponentName': false
   },
   {
     'libraryName': 'xcui',
-    'libraryDirectory': 'components'  // default: lib
+    'libraryDirectory': 'lib'
   },
   {
     'libraryName': 'elementUI',
-    'libraryDirectory': 'libs'  // default: lib
+    'libraryDirectory': 'libs'
   },
   {
     'libraryName': 'three',
@@ -79,16 +79,16 @@ config it in your .babelrc
   },
   {
     'libraryName': 'pixi.js',
-    'libraryDirectory': 'components'  // default: lib
+    'libraryDirectory': 'components'
   },
 
   {
     'libraryName': 'd3',
-    'libraryDirectory': 'components'  // default: lib
+    'libraryDirectory': 'components'
   },
   {
     'libraryName': 'echart',
-    'libraryDirectory': 'components'  // default: lib
+    'libraryDirectory': 'components'
   }
 ]
 ```
