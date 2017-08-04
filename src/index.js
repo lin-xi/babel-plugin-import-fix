@@ -24,6 +24,7 @@ export default function ({ types }) {
         ({
           libraryName,
           libraryDirectory,
+          getPath,
           style,
           camel2DashComponentName,
           camel2UnderlineComponentName,
@@ -33,6 +34,7 @@ export default function ({ types }) {
           return new Plugin(
             libraryName,
             libraryDirectory,
+            getPath,
             style,
             camel2DashComponentName,
             camel2UnderlineComponentName,
