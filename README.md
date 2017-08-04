@@ -47,11 +47,8 @@ config it in your .babelrc
 | xcui         |✅        |
 | antd         |✅        |
 | elementUI    |✅        |
-| pixi         |✅        |
-| threejs      |✅        |
-| echart       |✅        |
+| material-ui  |✅        |
 | d3           |✅        |
-
 -------
 
 ## default config:
