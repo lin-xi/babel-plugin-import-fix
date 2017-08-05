@@ -1,17 +1,17 @@
 # babel-plugin-import-fix
 
 
-alter import module to certain module file path for smaller bundle and better performance
+alter import module to certain module file path for smaller bundle file and better performance
 
 -------
 
-```
+```javascript
 import {Button} from 'antd';
 ```
 
 after fix:
 
-```
+```javascript
 import {Button} from 'antd/lib/button';
 import 'antd/lib/button/style'
 ```
@@ -22,14 +22,14 @@ bundle file size decrease from 1.5Mb to 286Kb.
 
 ## how to use
 
-```
+```bash
 npm install babel-plugin-import-fix -D
 ```
 
 config it in your .babelrc
 
 .babelrc
-```
+```javascript
 {
   "presets": [
     ["es2015", { "modules": false }], "react"
@@ -47,51 +47,35 @@ config it in your .babelrc
 | xcui         |✅        |
 | antd         |✅        |
 | elementUI    |✅        |
-| pixi         |✅        |
-| threejs      |✅        |
-| echart       |✅        |
+| material-ui  |✅        |
 | d3           |✅        |
-
 -------
 
 ## default config:
 
-```
+```javascript
 [
   {
     'libraryName': 'antd',
-    'libraryDirectory': 'lib',   // default: lib
-    'style': true   // or 'css'
+    'libraryDirectory': 'lib', 
+    'style': true
   },
   {
     'libraryName': 'material-ui',
-    'libraryDirectory': 'components',  // default: lib
-    'camel2DashComponentName': false  // default: true
+    'libraryDirectory': '',
+    'camel2DashComponentName': false
   },
   {
     'libraryName': 'xcui',
-    'libraryDirectory': 'components'  // default: lib
+    'libraryDirectory': 'lib'
   },
   {
     'libraryName': 'elementUI',
-    'libraryDirectory': 'libs'  // default: lib
+    'libraryDirectory': 'libs'
   },
-  {
-    'libraryName': 'three',
-    'libraryDirectory': 'components'  // default: lib
-  },
-  {
-    'libraryName': 'pixi.js',
-    'libraryDirectory': 'components'  // default: lib
-  },
-
   {
     'libraryName': 'd3',
-    'libraryDirectory': 'components'  // default: lib
-  },
-  {
-    'libraryName': 'echart',
-    'libraryDirectory': 'components'  // default: lib
+    'libraryDirectory': 'components'
   }
 ]
 ```
@@ -103,7 +87,7 @@ config it in your .babelrc
 you can overwrite the config or add new config like this:
 
 .babelrc
-```
+```javascript
 {
   "presets": [
     ["es2015", { "modules": false }], "react"
