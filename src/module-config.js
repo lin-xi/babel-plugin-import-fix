@@ -30,7 +30,7 @@ export const config = [
     'libraryName': 'element-ui',
     'libraryDirectory': 'lib',
     'getPath': function (name) {
-      return 'element-ui/libs/' + camel2Dash(name)
+      return 'element-ui/lib/' + camel2Dash(name)
     }
   },
   {
