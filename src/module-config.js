@@ -21,14 +21,14 @@ export const config = [
   },
   {
     'libraryName': 'xcui',
-    'libraryDirectory': 'components',
+    'libraryDirectory': 'lib',
     'getPath': function (name) {
       return 'xcui/lib/' + camel2Dash(name)
     }
   },
   {
     'libraryName': 'element-ui',
-    'libraryDirectory': 'libs',
+    'libraryDirectory': 'lib',
     'getPath': function (name) {
       return 'element-ui/libs/' + camel2Dash(name)
     }
