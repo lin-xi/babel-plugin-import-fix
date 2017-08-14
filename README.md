@@ -51,37 +51,6 @@ config it in your .babelrc
 | d3           |✅        |
 -------
 
-## default config:
-
-```javascript
-[
-  {
-    'libraryName': 'antd',
-    'libraryDirectory': 'lib', 
-    'style': true
-  },
-  {
-    'libraryName': 'material-ui',
-    'libraryDirectory': '',
-    'camel2DashComponentName': false
-  },
-  {
-    'libraryName': 'xcui',
-    'libraryDirectory': 'lib'
-  },
-  {
-    'libraryName': 'elementUI',
-    'libraryDirectory': 'libs'
-  },
-  {
-    'libraryName': 'd3',
-    'libraryDirectory': 'components'
-  }
-]
-```
-
--------
-
 ## extend usage:
 
 you can overwrite the config or add new config like this:
@@ -94,14 +63,65 @@ you can overwrite the config or add new config like this:
   ],
   "plugins": [["import-fix", [
     {
-      'libraryName': 'antd',
-      'libraryDirectory': 'lib', 
-      'style': false
-    }
+      'libraryName': 'xcui',
+      'libraryPath': 'xcui/lib/${name}.js',
+      'namePolicy': 'dash',
+      'cssDirectory': 'xcui/css/${name}.css'
+    },
   ]]]
 }
 ```
 -------
+
+## name policy
+
+three policy are supported
+
++ dash, date-picker
++ camel, DatePicker
++ underline, date_picker
+
+-------
+
+## default config:
+
+```javascript
+[
+  {
+    'libraryName': 'antd',
+    'libraryPath': 'antd/lib/${name}/index.js',
+    'namePolicy': 'dash',
+    'cssDirectory': 'antd/lib/${name}/style/index.css'
+  },
+  {
+    'libraryName': 'material-ui',
+    'libraryPath': 'material-ui/${name}/index.js',
+    'namePolicy': 'camel',
+    'cssDirectory': ''
+  },
+  {
+    'libraryName': 'xcui',
+    'libraryPath': 'xcui/lib/${name}.js',
+    'namePolicy': 'dash',
+    'cssDirectory': 'xcui/css/${name}.css'
+  },
+  {
+    'libraryName': 'element-ui',
+    'libraryPath': 'element-ui/lib/${name}.js',
+    'namePolicy': 'dash',
+    'cssDirectory': 'element-ui/theme-default/${name}.css'
+  },
+  {
+    'libraryName': 'd3',
+    'libraryPath': 'd3-${name}/index.js',
+    'namePolicy': 'dash',
+    'cssDirectory': ''
+  }
+]
+```
+
+-------
+
 
 ## thanks:
 
