@@ -58,13 +58,26 @@ export default class Plugin {
         } else if (this.namePolicy === 'underline') {
           finalPath = this.libraryPath.replace(reg, camel2Underline(name))
         }
-        console.log('[[[[', name, '=>', finalPath, ']]]]')
+        console.log('[[[[js:', name, '=>', finalPath, ']]]]')
+        return finalPath
+      }
+      let getCSSPath = (name) => {
+        let reg = new RegExp('\\$\{name\}', 'g')
+        let finalPath = 'name'
+        if (this.namePolicy === 'dash') {
+          finalPath = this.cssPath.replace(reg, camel2Dash(name))
+        } else if (this.namePolicy === 'camel') {
+          finalPath = this.cssPath.replace(reg, name)
+        } else if (this.namePolicy === 'underline') {
+          finalPath = this.cssPath.replace(reg, camel2Underline(name))
+        }
+        console.log('[[[[css:', name, '=>', finalPath, ']]]]')
         return finalPath
       }
       const path = winPath(getPath(methodName))
       this.selectedMethods[methodName] = file.addImport(path, 'default')
       if (this.cssPath) {
-        file.addImport(getPath(methodName), 'style')
+        file.addImport(getCSSPath(methodName), 'style')
       }
     }
     return this.selectedMethods[methodName]
