@@ -50,13 +50,16 @@ export default class Plugin {
       // )
       let getPath = (name) => {
         let reg = new RegExp('\\$\{name\}', 'g')
+        let finalPath = 'name'
         if (this.namePolicy === 'dash') {
-          return this.libraryPath.replace(reg, camel2Dash(name))
+          finalPath = this.libraryPath.replace(reg, camel2Dash(name))
         } else if (this.namePolicy === 'camel') {
-          return this.libraryPath.replace(reg, name)
+          finalPath = this.libraryPath.replace(reg, name)
         } else if (this.namePolicy === 'underline') {
-          return this.libraryPath.replace(reg, camel2Underline(name))
+          finalPath = this.libraryPath.replace(reg, camel2Underline(name))
         }
+        console.log('[[[[', name, '=>', finalPath, ']]]]')
+        return finalPath
       }
       const path = winPath(getPath(methodName))
       this.selectedMethods[methodName] = file.addImport(path, 'default')
