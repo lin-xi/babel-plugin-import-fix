@@ -1,43 +1,32 @@
-function camel2Dash (_str) {
-  const str = _str[0].toLowerCase() + _str.substr(1)
-  return str.replace(/([A-Z])/g, ($1) => `-${$1.toLowerCase()}`)
-}
-
 export const config = [
   {
     'libraryName': 'antd',
-    'libraryDirectory': 'lib',
-    'style': true,
-    'getPath': function (name) {
-      return 'antd/lib/' + name
-    }
+    'libraryPath': 'antd/lib/${name}/index.js',
+    'namePolicy': 'dash',
+    'cssDirectory': 'antd/lib/${name}/style/index.css'
   },
   {
     'libraryName': 'material-ui',
-    'libraryDirectory': '',
-    'getPath': function (name) {
-      return 'material-ui/' + name
-    }
+    'libraryPath': 'material-ui/${name}/index.js',
+    'namePolicy': 'camel',
+    'cssDirectory': ''
   },
   {
     'libraryName': 'xcui',
-    'libraryDirectory': 'lib',
-    'getPath': function (name) {
-      return 'xcui/lib/' + camel2Dash(name)
-    }
+    'libraryPath': 'xcui/lib/${name}.js',
+    'namePolicy': 'dash',
+    'cssDirectory': 'xcui/css/${name}.css'
   },
   {
     'libraryName': 'element-ui',
-    'libraryDirectory': 'lib',
-    'getPath': function (name) {
-      return 'element-ui/lib/' + camel2Dash(name)
-    }
+    'libraryPath': 'element-ui/lib/${name}.js',
+    'namePolicy': 'dash',
+    'cssDirectory': 'element-ui/theme-default/${name}.css'
   },
   {
     'libraryName': 'd3',
-    'libraryDirectory': '',
-    'getPath': function (name) {
-      return 'd3-' + camel2Dash(name)
-    }
+    'libraryPath': 'd3-${name}/index.js',
+    'namePolicy': 'dash',
+    'cssDirectory': ''
   }
 ]

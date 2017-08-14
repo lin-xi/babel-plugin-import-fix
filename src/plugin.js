@@ -17,9 +17,9 @@ function winPath (path) {
 export default class Plugin {
   constructor (
     libraryName,
-    libraryDirectory,
-    getPath,
-    style,
+    libraryPath,
+    namePolicy,
+    cssDirectory,
     camel2DashComponentName,
     camel2UnderlineComponentName,
     fileName,
@@ -29,24 +29,16 @@ export default class Plugin {
     this.libraryObjs = null
     this.selectedMethods = null
     this.libraryName = libraryName
-    this.libraryDirectory =
-      typeof libraryDirectory === 'undefined' ? 'lib' : libraryDirectory
-    this.camel2DashComponentName =
-      typeof camel2DashComponentName === 'undefined'
-        ? true
-        : camel2DashComponentName
+    this.namePolicy = namePolicy
+    this.libraryPath = libraryPath
+    this.cssDirectory = cssDirectory || false
     this.camel2UnderlineComponentName = camel2UnderlineComponentName
-    this.getPath = getPath
-    this.style = style || false
     this.fileName = fileName || ''
     this.types = types
   }
 
   importMethod (methodName, file) {
     if (!this.selectedMethods[methodName]) {
-      // const libraryDirectory = this.libraryDirectory
-      const getPath = this.getPath
-      const style = this.style
       // const transformedMethodName = this.camel2UnderlineComponentName  // eslint-disable-line
       //   ? camel2Underline(methodName)
       //   : this.camel2DashComponentName
@@ -55,12 +47,20 @@ export default class Plugin {
       // const path = winPath(
       //   join(this.libraryName, libraryDirectory, transformedMethodName, this.fileName)
       // )
+      let getPath = (name) => {
+        let reg = new RegExp('\$\{name\}', 'g')
+        if (this.namePolicy === 'dash') {
+          return this.libraryPath.replace(reg, camel2Dash(name))
+        } else if (this.namePolicy === 'camel') {
+          return this.libraryPath.replace(reg, name)
+        } else if (this.namePolicy === 'underline') {
+          return this.libraryPath.replace(reg, camel2Underline(name))
+        }
+      }
       const path = winPath(getPath(methodName))
       this.selectedMethods[methodName] = file.addImport(path, 'default')
-      if (style === true) {
-        file.addImport(`${path}/style`, 'style')
-      } else if (style === 'css') {
-        file.addImport(`${path}/style/css`, 'style')
+      if (this.cssDirectory) {
+        file.addImport(getPath(methodName), 'style')
       }
     }
     return this.selectedMethods[methodName]
