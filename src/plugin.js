@@ -49,7 +49,7 @@ export default class Plugin {
       //   join(this.libraryName, libraryDirectory, transformedMethodName, this.fileName)
       // )
       let getPath = (name) => {
-        let reg = new RegExp('\$\{name\}', 'g')
+        let reg = new RegExp('\\$\{name\}', 'g')
         if (this.namePolicy === 'dash') {
           return this.libraryPath.replace(reg, camel2Dash(name))
         } else if (this.namePolicy === 'camel') {

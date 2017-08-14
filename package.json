@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-import-fix",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "alter import module to certain module file path for smaller bundle and better performance.",
   "repository": {
     "type": "git",
