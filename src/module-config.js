@@ -15,7 +15,7 @@ export const config = [
     'libraryName': 'xcui',
     'libraryPath': 'xcui/lib/${name}.js',
     'namePolicy': 'dash',
-    'cssPath': 'xcui/css/${name}.css'
+    'cssPath': 'xcui/lib/css/${name}.css'
   },
   {
     'libraryName': 'element-ui',
