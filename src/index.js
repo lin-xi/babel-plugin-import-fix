@@ -23,9 +23,9 @@ export default function ({ types }) {
       plugins = opts.map(
         ({
           libraryName,
-          libraryDirectory,
-          getPath,
-          style,
+          libraryPath,
+          namePolicy,
+          cssPath,
           camel2DashComponentName,
           camel2UnderlineComponentName,
           fileName
@@ -33,9 +33,9 @@ export default function ({ types }) {
           assert(libraryName, 'libraryName should be provided')
           return new Plugin(
             libraryName,
-            libraryDirectory,
-            getPath,
-            style,
+            libraryPath,
+            namePolicy,
+            cssPath,
             camel2DashComponentName,
             camel2UnderlineComponentName,
             fileName,

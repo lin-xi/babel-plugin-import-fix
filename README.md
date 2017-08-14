@@ -3,6 +3,7 @@
 
 alter import module to certain module file path for smaller bundle file and better performance
 
+主要功能是修改import，缩小import的范围，提升性能
 -------
 
 ```javascript
@@ -28,6 +29,8 @@ npm install babel-plugin-import-fix -D
 
 config it in your .babelrc
 
+在.babelrc里进行配置
+
 .babelrc
 ```javascript
 {
@@ -51,9 +54,15 @@ config it in your .babelrc
 | d3           |✅        |
 -------
 
+more library will be supported increasingly
+
+默认直接支持这些库，不需要配置，会不断增加支持的类型
+
 ## extend usage:
 
 you can overwrite the config or add new config like this:
+
+扩展支持的库，如果没有css，可以不写cssPath，或设置为空
 
 .babelrc
 ```javascript
@@ -66,7 +75,7 @@ you can overwrite the config or add new config like this:
       'libraryName': 'xcui',
       'libraryPath': 'xcui/lib/${name}.js',
       'namePolicy': 'dash',
-      'cssDirectory': 'xcui/css/${name}.css'
+      'cssPath': 'xcui/css/${name}.css'
     },
   ]]]
 }
@@ -77,6 +86,8 @@ you can overwrite the config or add new config like this:
 
 three policy are supported
 
+namePolicy选项
+
 + dash, date-picker
 + camel, DatePicker
 + underline, date_picker
@@ -85,37 +96,39 @@ three policy are supported
 
 ## default config:
 
+默认配置
+
 ```javascript
 [
   {
     'libraryName': 'antd',
     'libraryPath': 'antd/lib/${name}/index.js',
     'namePolicy': 'dash',
-    'cssDirectory': 'antd/lib/${name}/style/index.css'
+    'cssPath': 'antd/lib/${name}/style/index.css'
   },
   {
     'libraryName': 'material-ui',
     'libraryPath': 'material-ui/${name}/index.js',
     'namePolicy': 'camel',
-    'cssDirectory': ''
+    'cssPath': ''
   },
   {
     'libraryName': 'xcui',
     'libraryPath': 'xcui/lib/${name}.js',
     'namePolicy': 'dash',
-    'cssDirectory': 'xcui/css/${name}.css'
+    'cssPath': 'xcui/css/${name}.css'
   },
   {
     'libraryName': 'element-ui',
     'libraryPath': 'element-ui/lib/${name}.js',
     'namePolicy': 'dash',
-    'cssDirectory': 'element-ui/theme-default/${name}.css'
+    'cssPath': 'element-ui/theme-default/${name}.css'
   },
   {
     'libraryName': 'd3',
     'libraryPath': 'd3-${name}/index.js',
     'namePolicy': 'dash',
-    'cssDirectory': ''
+    'cssPath': ''
   }
 ]
 ```

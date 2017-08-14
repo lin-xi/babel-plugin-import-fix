@@ -19,7 +19,7 @@ export default class Plugin {
     libraryName,
     libraryPath,
     namePolicy,
-    cssDirectory,
+    cssPath,
     camel2DashComponentName,
     camel2UnderlineComponentName,
     fileName,
@@ -29,9 +29,10 @@ export default class Plugin {
     this.libraryObjs = null
     this.selectedMethods = null
     this.libraryName = libraryName
+    this.libraryPath = libraryPath
     this.namePolicy = namePolicy
     this.libraryPath = libraryPath
-    this.cssDirectory = cssDirectory || false
+    this.cssPath = cssPath || false
     this.camel2UnderlineComponentName = camel2UnderlineComponentName
     this.fileName = fileName || ''
     this.types = types
