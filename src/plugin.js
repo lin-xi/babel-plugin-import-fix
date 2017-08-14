@@ -63,7 +63,7 @@ export default class Plugin {
       }
       const path = winPath(getPath(methodName))
       this.selectedMethods[methodName] = file.addImport(path, 'default')
-      if (this.cssDirectory) {
+      if (this.cssPath) {
         file.addImport(getPath(methodName), 'style')
       }
     }
