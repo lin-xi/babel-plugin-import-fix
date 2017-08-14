@@ -3,7 +3,8 @@
 
 alter import module to certain module file path for smaller bundle file and better performance
 
-主要功能是修改import，缩小import的范围，提升性能
+主要功能是修改import，缩小import的范围，减少bundle文件大小，提升性能
+
 -------
 
 ```javascript
@@ -75,7 +76,7 @@ you can overwrite the config or add new config like this:
       'libraryName': 'xcui',
       'libraryPath': 'xcui/lib/${name}.js',
       'namePolicy': 'dash',
-      'cssPath': 'xcui/css/${name}.css'
+      'cssPath': 'xcui/lib/css/${name}.css'
     },
   ]]]
 }
@@ -116,7 +117,7 @@ namePolicy选项
     'libraryName': 'xcui',
     'libraryPath': 'xcui/lib/${name}.js',
     'namePolicy': 'dash',
-    'cssPath': 'xcui/css/${name}.css'
+    'cssPath': 'xcui/lib/css/${name}.css'
   },
   {
     'libraryName': 'element-ui',
