@@ -76,11 +76,24 @@ you can overwrite the config or add new config like this:
       'libraryName': 'xcui',
       'libraryPath': 'xcui/lib/${name}.js',
       'namePolicy': 'dash',
-      'cssPath': 'xcui/lib/css/${name}.css'
+      'cssPath': ['xcui/lib/css/common.css', 'xcui/lib/css/${name}.css']
     },
+    {
+      'libraryName': 'antd',
+      'libraryPath': 'antd/lib/${name}/index.js',
+      'namePolicy': 'dash',
+      'cssPath': 'antd/lib/${name}/style/index.css'
+    }
   ]]]
 }
 ```
+
+cssPath can be a string or an array or an empty string, if you hava multiple css files to import, use an array.
+you may igonre cssPath if you don't need.
+
+cssPath可以是字符或数组
+
+
 -------
 
 ## name policy
@@ -117,13 +130,13 @@ namePolicy选项
     'libraryName': 'xcui',
     'libraryPath': 'xcui/lib/${name}.js',
     'namePolicy': 'dash',
-    'cssPath': 'xcui/lib/css/${name}.css'
+    'cssPath': ['xcui/lib/css/common.css', 'xcui/lib/css/${name}.css']
   },
   {
     'libraryName': 'element-ui',
     'libraryPath': 'element-ui/lib/${name}.js',
     'namePolicy': 'dash',
-    'cssPath': 'element-ui/theme-default/${name}.css'
+    'cssPath': ['element-ui/theme-default/base.css', 'element-ui/theme-default/${name}.css']
   },
   {
     'libraryName': 'd3',

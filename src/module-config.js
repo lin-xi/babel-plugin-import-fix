@@ -15,13 +15,13 @@ export const config = [
     'libraryName': 'xcui',
     'libraryPath': 'xcui/lib/${name}.js',
     'namePolicy': 'dash',
-    'cssPath': 'xcui/lib/css/${name}.css'
+    'cssPath': ['xcui/lib/css/common.css', 'xcui/lib/css/${name}.css']
   },
   {
     'libraryName': 'element-ui',
     'libraryPath': 'element-ui/lib/${name}.js',
     'namePolicy': 'dash',
-    'cssPath': 'element-ui/theme-default/${name}.css'
+    'cssPath': ['element-ui/theme-default/base.css', 'element-ui/theme-default/${name}.css']
   },
   {
     'libraryName': 'd3',
