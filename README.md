@@ -136,7 +136,7 @@ namePolicy选项
     'libraryName': 'element-ui',
     'libraryPath': 'element-ui/lib/${name}.js',
     'namePolicy': 'dash',
-    'cssPath': ['element-ui/theme-default/base.css', 'element-ui/theme-default/${name}.css']
+    'cssPath': ['element-ui/lib/theme-default/base.css', 'element-ui/lib/theme-default/${name}.css']
   },
   {
     'libraryName': 'd3',
