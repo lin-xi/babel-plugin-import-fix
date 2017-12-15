@@ -12,6 +12,12 @@ export const config = [
     'cssPath': ''
   },
   {
+    'libraryName': 'w-ui',
+    'libraryPath': 'w-ui/lib/${name}.js',
+    'namePolicy': 'dash',
+    'cssPath': ['w-ui/lib/css/common.css', 'w-ui/lib/css/${name}.css']
+  },
+  {
     'libraryName': 'xcui',
     'libraryPath': 'xcui/lib/${name}.js',
     'namePolicy': 'dash',

@@ -16,11 +16,25 @@ export default function ({ types }) {
   function Program (path, { opts = {} }) {
     // Init plugin instances once.
     if (!plugins) {
-      opts = config
+      let libs = config
       if (Array.isArray(opts)) {
-        opts = config.concat(opts)
+        opts.forEach(opt => {
+          if (libs.some(item => {
+            if (item.libraryName === opt.libraryName) {
+              item.libraryPath = opt.libraryPath
+              item.namePolicy = opt.namePolicy
+              item.cssPath = opt.cssPath
+              return true
+            }
+            return false
+          })) {
+            return false
+          } else {
+            libs.push(opt)
+          }
+        })
       }
-      plugins = opts.map(
+      plugins = libs.map(
         ({
           libraryName,
           libraryPath,
