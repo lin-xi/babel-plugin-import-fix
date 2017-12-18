@@ -1,5 +1,11 @@
 # babel-plugin-import-fix
 
+[![Build Status](https://travis-ci.org/lin-xi/babel-plugin-import-fix.svg?branch=master)](https://travis-ci.org/lin-xi/babel-plugin-import-fix)
+[![Coverage Status](https://coveralls.io/repos/github/lin-xi/babel-plugin-import-fix/badge.svg?branch=master)](https://coveralls.io/github/lin-xi/babel-plugin-import-fix?branch=master)
+[![npm package](https://img.shields.io/npm/v/babel-plugin-import-fix.svg)](https://www.npmjs.org/package/babel-plugin-import-fix)
+[![NPM downloads](http://img.shields.io/npm/dm/babel-plugin-import-fix.svg)](https://npmjs.org/package/babel-plugin-import-fix)
+
+
 
 alter import module to certain module file path for smaller bundle file and better performance
 
