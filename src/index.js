@@ -1,5 +1,5 @@
 import assert from 'assert'
-import Plugin from './Plugin'
+import Plugin from './plugin'
 import {config} from './module-config.js'
 
 export default function ({ types }) {
